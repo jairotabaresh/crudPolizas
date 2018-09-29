@@ -1,0 +1,14 @@
+﻿body {
+    
+}
+
+.Contenedor{
+    width:80%;
+    max-width:1000px;
+}
+
+.Principal{
+    width:80%;
+    max-width:80%;
+    min-width:10%;
+}
