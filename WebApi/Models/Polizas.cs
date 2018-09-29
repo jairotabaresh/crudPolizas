@@ -23,5 +23,7 @@ namespace WebApi.Models
         public Nullable<int> periodoCobertura { get; set; }
         public Nullable<decimal> Precio { get; set; }
         public string tipoRiesgo { get; set; }
+        public string usuarioPoliza { get; set; }
+        public Nullable<bool> Estado { get; set; }
     }
 }

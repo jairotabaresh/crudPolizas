@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="crudGapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="crudGapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Polizas">
           <Key>
             <PropertyRef Name="idPoliza" />
@@ -18,12 +18,13 @@
           <Property Name="periodoCobertura" Type="int" />
           <Property Name="Precio" Type="numeric" Precision="18" Scale="0" />
           <Property Name="tipoRiesgo" Type="nvarchar" MaxLength="50" />
+          <Property Name="usuarioPoliza" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityContainer Name="crudGapModelStoreContainer">
           <EntitySet Name="Polizas" EntityType="Self.Polizas" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="crudGapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -40,6 +41,8 @@
           <Property Name="periodoCobertura" Type="Int32" />
           <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="tipoRiesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usuarioPoliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="dbModelCrud" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Polizas" EntityType="Self.Polizas" />
@@ -53,6 +56,8 @@
           <EntitySetMapping Name="Polizas">
             <EntityTypeMapping TypeName="crudGapModel.Polizas">
               <MappingFragment StoreEntitySet="Polizas">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="usuarioPoliza" ColumnName="usuarioPoliza" />
                 <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />

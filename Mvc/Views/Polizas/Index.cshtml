@@ -42,6 +42,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.tipoRiesgo)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.usuarioPoliza)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
                 <th></th>
             </tr>
 
@@ -74,6 +80,12 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tipoRiesgo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.usuarioPoliza)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
                     </td>
                     <td>
                         <a href="@Url.Action("Create", "Polizas", new { id = item.idPoliza })">Editar</a>
