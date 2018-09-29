@@ -13,10 +13,10 @@ namespace WebApi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbModel : DbContext
+    public partial class dbModelCrud : DbContext
     {
-        public dbModel()
-            : base("name=dbModel")
+        public dbModelCrud()
+            : base("name=dbModelCrud")
         {
         }
     

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Mvc.Models.mvcPolizasModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de Pólizas";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <br />
+    <a href ="@Url.Action("Create", "Polizas")">Adicionar</a>
+    <br />
 </p>
 <table class="table">
     <tr>
@@ -71,11 +71,9 @@
             @Html.DisplayFor(modelItem => item.tipoRiesgo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <a href="@Url.Action("Create", "Polizas", new { id = item.idPoliza })">Editar</a>
+            <a href="@Url.Action("Delete", "Polizas", new { id = item.idPoliza })">Eliminar</a>
         </td>
     </tr>
 }
-
 </table>

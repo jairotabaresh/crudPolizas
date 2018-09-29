@@ -14,7 +14,7 @@ namespace WebApi.Controllers
 {
     public class PolizasController : ApiController
     {
-        private dbModel db = new dbModel();
+        private dbModelCrud db = new dbModelCrud();
 
         // GET: api/Polizas
         public IQueryable<Polizas> GetPolizas()
