@@ -45,7 +45,7 @@ namespace Mvc.Controllers
             }
             else
             {
-                HttpResponseMessage response = Globals.webApiClient.GetAsync("Polizas/" + id.ToString()).Result;
+                HttpResponseMessage response = Globals.webApiClient.GetAsync("Polizas/"+id.ToString()).Result;
                 return View(response.Content.ReadAsAsync<mvcPolizasModel>().Result);
             }
         }
@@ -53,14 +53,21 @@ namespace Mvc.Controllers
         [HttpPost]
         public ActionResult Create(mvcPolizasModel poli)
         {
-            if (poli.tipoRiesgo == "alto" && poli.Cobertura>50)
+            if (poli.tipoRiesgo == "alto" && poli.Cobertura > 50)
             {
                 TempData["msg"] = "<script>alert('El % de cubrimiento no puede ser superior al 50% para un riesgo alto');</script>";
-                return View();
+                return View("Create");
             }
             else
-            { 
-                HttpResponseMessage response = Globals.webApiClient.PostAsJsonAsync("Polizas", poli).Result;
+            {
+                if (poli.idPoliza == 0)
+                {
+                    HttpResponseMessage response = Globals.webApiClient.PostAsJsonAsync("Polizas", poli).Result;                  
+                }
+                else
+                {
+                    HttpResponseMessage response = Globals.webApiClient.PutAsJsonAsync("Polizas/"+poli.idPoliza, poli).Result;
+                }
                 return RedirectToAction("Index");
             }
         }
